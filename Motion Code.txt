@@ -1,0 +1,187 @@
+VAR_GLOBAL
+	//Define Axis
+	AxisX:INT;
+	AxisY:INT;
+	AxisZ:INT;
+	
+	//===================================================//
+	
+	//Define Positive Movement
+	MoveX_P:BOOL;
+	MoveY_P:BOOL;
+	MoveZ_P:BOOL;
+	
+	//Define Negative Movement
+	MoveX_N:BOOL;
+	MoveY_N:BOOL;
+	MoveZ_N:BOOL;
+	
+	//Define Positive Movement
+	MoveX_P_Status:BOOL;
+	MoveY_P_Status:BOOL;
+	MoveZ_P_Status:BOOL;
+	
+	//Define Negative Movement
+	MoveX_N_Status:BOOL;
+	MoveY_N_Status:BOOL;
+	MoveZ_N_Status:BOOL;
+	
+	//===================================================//
+	
+	//Define Maximum Limit
+	Max_X:INT;
+	Max_Y:INT;
+	Max_Z:INT;
+	
+	//Define Minimum Limit (General)
+	Min_Value:INT;
+	
+	//Define Extra Feature
+	Reset:BOOL;
+	Moving_Status:BOOL;
+END_VAR
+
+
+
+=================================Main Code=======================================
+
+//Set Maximum Value
+Max_X:=50;
+Max_Y:=60;
+Max_Z:=70;
+
+//Set General Minimum Value
+Min_Value:=0;
+
+//Reset Feature
+IF RESET THEN
+	AxisX:=0;
+	AxisY:=0;
+	AxisZ:=0;
+		
+	MoveX_P:=FALSE;
+	MoveY_P:=FALSE;
+	MoveZ_P:=FALSE;
+		
+	MoveX_N:=FALSE;
+	MoveY_N:=FALSE;
+	MoveZ_N:=FALSE;
+	
+	MoveX_P_Status:=FALSE;
+	MoveY_P_Status:=FALSE;
+	MoveZ_P_Status:=FALSE;
+
+	MoveX_N_Status:=FALSE;
+	MoveY_N_Status:=FALSE;
+	MoveZ_N_Status:=FALSE;
+		
+	Moving_Status:=FALSE;
+	RESET:=FALSE;
+END_IF
+
+//Safety Feature
+IF Moving_Status = TRUE THEN
+	
+	//X-Axis Movement
+	IF AxisX >= Min_Value AND AxisX <= Max_X THEN
+		
+		IF MoveX_P THEN
+			//Prevent Both N and P ON in same time
+			IF MoveX_N THEN
+				IF MoveX_P_Status = TRUE AND MoveX_N_Status = FALSE THEN
+					MoveX_P:=FALSE;
+				END_IF
+				
+				IF MoveX_P_Status = FALSE AND MoveX_N_Status = TRUE THEN
+					MoveX_N:=FALSE;
+				END_IF
+			END_IF
+			//Ending
+			
+			IF AxisX <> Max_X AND MoveX_P THEN
+				AxisX:=AxisX+1;
+				MoveX_P_Status:=TRUE;
+			END_IF
+			
+		ELSE
+			MoveX_P_Status:=FALSE;
+		END_IF
+		
+		IF MoveX_N THEN
+			IF AxisX <> Min_Value THEN
+				AxisX:=AxisX-1;
+				MoveX_N_Status:=TRUE;
+			END_IF
+		ELSE
+			MoveX_N_Status:=FALSE;
+		END_IF
+	END_IF
+	
+	
+	//Y-Axis Movement
+	IF AxisY >= Min_Value AND AxisY <= Max_Y THEN
+		IF MoveY_P THEN
+			//Prevent Both N and P ON in same time
+			IF MoveY_N THEN
+				IF MoveY_P_Status = TRUE AND MoveY_N_Status = FALSE THEN
+					MoveY_P:=FALSE;
+				END_IF
+				
+				IF MoveY_P_Status = FALSE AND MoveY_N_Status = TRUE THEN
+					MoveY_N:=FALSE;
+				END_IF
+			END_IF
+			//Ending
+			
+			IF AxisY <> Max_Y AND MoveY_P THEN
+				AxisY:=AxisY+1;
+				MoveY_P_Status:=TRUE;
+			END_IF
+		ELSE
+			MoveY_P_Status:=FALSE;
+		END_IF
+		
+		IF MoveY_N THEN
+			IF AxisY <> Min_Value THEN
+				AxisY:=AxisY-1;
+				MoveY_N_Status:=TRUE;
+			END_IF
+		ELSE
+			MoveY_N_Status:=FALSE;
+		END_IF
+	END_IF
+	
+	//Z-Axis Movement
+	IF AxisZ >= Min_Value AND AxisZ <= Max_Z THEN
+		IF MoveZ_P THEN
+			//Prevent Both N and P ON in same time
+			IF MoveZ_N THEN
+				IF MoveZ_P_Status = TRUE AND MoveZ_N_Status = FALSE THEN
+					MoveZ_P:=FALSE;
+				END_IF
+				
+				IF MoveZ_P_Status = FALSE AND MoveZ_N_Status = TRUE THEN
+					MoveZ_N:=FALSE;
+				END_IF
+			END_IF
+			//Ending
+			
+			IF AxisZ <> Max_Z AND MoveZ_P THEN
+				AxisZ:=AxisZ+1;
+				MoveZ_P_Status:=TRUE;
+			END_IF
+		ELSE
+			MoveZ_P_Status:=FALSE;
+		END_IF
+		IF MoveZ_N THEN
+			IF AxisZ <> Min_Value THEN
+				AxisZ:=AxisZ-1;
+				MoveZ_N_Status:=TRUE;
+			END_IF
+		ELSE
+			MoveZ_N_Status:=FALSE;
+		END_IF
+	END_IF
+	
+END_IF
+
