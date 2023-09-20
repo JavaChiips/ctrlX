@@ -1,0 +1,148 @@
+{
+  "Name": "Device",
+  "IconName": null,
+  "EcadId": "",
+  "TypeName": "_3S.CoDeSys.DeviceObject.DeviceObject",
+  "Type": 4096,
+  "Id": "1001 0081",
+  "ModuleId": null,
+  "Version": "1.18.20.0",
+  "ObjectGuid": "db0fdc98-2a5a-4c53-827e-dba637554b3b",
+  "SlotIndex": 0,
+  "StructuralItems": [
+    {
+      "Name": "PLC Logic",
+      "IconName": null,
+      "EcadId": null,
+      "TypeName": "_3S.CoDeSys.PlcLogicObject.PlcLogicObject",
+      "Type": 0,
+      "Id": null,
+      "ModuleId": null,
+      "Version": null,
+      "ObjectGuid": "307480cc-300d-4806-ac53-d97ffa3e26dd",
+      "SlotIndex": 0,
+      "StructuralItems": [
+        {
+          "Name": "Application",
+          "IconName": null,
+          "EcadId": null,
+          "TypeName": "_3S.CoDeSys.ApplicationObject.ApplicationObject",
+          "Type": 0,
+          "Id": null,
+          "ModuleId": null,
+          "Version": null,
+          "ObjectGuid": "707dd943-6a1f-4187-8085-b649ad254377",
+          "SlotIndex": 0,
+          "StructuralItems": [
+            {
+              "Name": "Library Manager",
+              "IconName": null,
+              "EcadId": null,
+              "TypeName": "_3S.CoDeSys.LibManObject.LibManObject",
+              "Type": 0,
+              "Id": null,
+              "ModuleId": null,
+              "Version": null,
+              "ObjectGuid": "d844d61c-3c9d-4ccc-b14c-909dc010f82e",
+              "SlotIndex": 0,
+              "StructuralItems": []
+            },
+            {
+              "Name": "PLC_PRG",
+              "IconName": null,
+              "EcadId": null,
+              "TypeName": "_3S.CoDeSys.POUObject.POUObject",
+              "Type": 0,
+              "Id": null,
+              "ModuleId": null,
+              "Version": null,
+              "ObjectGuid": "a056b1fe-2e09-47b3-ac50-ea7f3b4e1ba3",
+              "SlotIndex": 0,
+              "StructuralItems": []
+            },
+            {
+              "Name": "Task Configuration",
+              "IconName": null,
+              "EcadId": null,
+              "TypeName": "_3S.CoDeSys.TaskConfigObject.TaskConfigObject",
+              "Type": 0,
+              "Id": null,
+              "ModuleId": null,
+              "Version": null,
+              "ObjectGuid": "4c10e89a-a54d-4b76-8479-3e72b6aa8ed6",
+              "SlotIndex": 0,
+              "StructuralItems": [
+                {
+                  "Name": "MainTask",
+                  "IconName": null,
+                  "EcadId": null,
+                  "TypeName": "_3S.CoDeSys.TaskObject.TaskObject",
+                  "Type": 0,
+                  "Id": null,
+                  "ModuleId": null,
+                  "Version": null,
+                  "ObjectGuid": "53ea5e26-f279-460d-ac5c-4e9967b6e0eb",
+                  "SlotIndex": 0,
+                  "StructuralItems": [
+                    {
+                      "Name": "PLC_PRG",
+                      "IconName": null,
+                      "EcadId": null,
+                      "TypeName": "_3S.CoDeSys.TaskObject.TaskPOUCallObject",
+                      "Type": 0,
+                      "Id": null,
+                      "ModuleId": null,
+                      "Version": null,
+                      "ObjectGuid": "55047d5d-cc6a-4b66-8b65-9d114038430c",
+                      "SlotIndex": 0,
+                      "StructuralItems": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Name": "GVL",
+              "IconName": null,
+              "EcadId": null,
+              "TypeName": "_3S.CoDeSys.GVLObject.GVLObject",
+              "Type": 0,
+              "Id": null,
+              "ModuleId": null,
+              "Version": null,
+              "ObjectGuid": "719bc58d-3813-4918-81d4-ada747b73fbf",
+              "SlotIndex": 0,
+              "StructuralItems": []
+            },
+            {
+              "Name": "MotionCode",
+              "IconName": null,
+              "EcadId": null,
+              "TypeName": "_3S.CoDeSys.POUObject.POUObject",
+              "Type": 0,
+              "Id": null,
+              "ModuleId": null,
+              "Version": null,
+              "ObjectGuid": "a41b5935-fc98-4f8d-8b03-a0c2d95dff6b",
+              "SlotIndex": 0,
+              "StructuralItems": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Name": "Realtime_Data",
+      "IconName": null,
+      "EcadId": null,
+      "TypeName": "_3S.CoDeSys.DeviceObject.DeviceObject",
+      "Type": 42420,
+      "Id": "1001 0000",
+      "ModuleId": null,
+      "Version": "1.8.0.0",
+      "ObjectGuid": "40a96c80-d248-45ea-abe2-f43e119b71ee",
+      "SlotIndex": 0,
+      "StructuralItems": []
+    }
+  ]
+}
