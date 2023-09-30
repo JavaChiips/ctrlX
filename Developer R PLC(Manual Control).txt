@@ -1,0 +1,59 @@
+========================Define GVL=======================
+VAR_GLOBAL
+	//Define button variable
+	R_Button:BOOL;
+	B_Button:BOOL;
+	G_Button:BOOL;
+	
+	//Define Mode
+	Button:INT;
+	Button_Mode:ARRAY[0..3] OF BOOL;
+	
+	//Define status of Pilot Lamp
+	R_Lamp:BOOL;
+	B_Lamp:BOOL;
+	G_Lamp:BOOL;
+	
+	//Define axis
+	Axis:INT;
+	
+END_VAR
+====================MotionControl Code====================
+IF R_Button THEN
+	Button:=1;
+	R_Button:=FALSE;
+ELSIF B_Button THEN
+	Button:=2;
+	B_Button:=FALSE;
+ELSIF G_Button THEN
+	Button:=3;
+	G_Button:=FALSE;
+END_IF
+
+CASE Button OF
+1:
+	R_Lamp:=CheckMode(Button:=Button);
+2:
+	B_Lamp:=CheckMode(Button:=Button);
+3:
+	G_Lamp:=CheckMode(Button:=Button);
+END_Case
+
+====================Swticing Mode FUNCTION====================
+FUNCTION CheckMode: BOOL
+VAR_INPUT
+	Button:INT;
+END_VAR
+
+VAR
+	Button_Mode:ARRAY[0..3] OF BOOL;
+END_VAR
+=========================FUNCTION Code=========================
+IF Button_Mode[Button] THEN
+	Button_Mode[Button]:=FALSE;
+ElSE
+	Button_Mode[Button]:=TRUE;
+END_IF
+
+CheckMode := Button_Mode[Button];
+========================END OF FUNCTION========================
